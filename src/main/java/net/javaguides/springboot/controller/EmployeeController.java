@@ -48,6 +48,7 @@ public class EmployeeController {
         model.addAttribute("listEmployees", employeeService.getAllEmployees());
         return "index";
     }
+    
 
     @GetMapping("/showNewEmployeeForm")
     public String showNewEmployeeForm(Model model)
