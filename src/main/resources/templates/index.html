@@ -8,11 +8,6 @@
     
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	    
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	
 </head>
 
 <body>
@@ -39,7 +34,11 @@
                     <td th:text="${employee.email}"></td>
                     <td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
                      	<a th:href="@{/deleteconfirm/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
-                     	<!--<a th:href="@{/deleteconfirm/{id}(id=${employee.id})}" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</a>-->                       	<!--   <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger btn-delete">Delete</a>-->
+                     	<!-- <button class="btn btn-danger" onclick="confirmDelete()">Delete</button> -->
+                     	
+                     	<!--<a th:href="@{/deleteconfirm/{id}(id=${employee.id})}" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</a>-->                       	
+                     	
+                     	<!--   <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger btn-delete">Delete</a>-->
                        	 <!--   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>-->
                        	 	       	 
                     </td>
@@ -48,11 +47,43 @@
             </tbody>
         </table>
     </div>
-    <!-- Modal -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
+<!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <!-- <script>
+    function confirmDelete() {
+        if (confirm('Are you sure you want to delete employee ?'))
+        {
+            setTimeout(function () {
+                alert('Employee deleted successfully!');
+                return true;
+            }, 5000); // Adjust the time delay as needed
+          
+        } 
+        else 
+        {
+            return false;
+        }
+    }
+</script> -->
+
+
+
+<!-- <script th:if="${deleteSuccess}">
+    alert('Employee deleted successfully!');
+</script> -->
+
+<script th:if="${deleteSuccess}">
+    setTimeout(function () {
+        alert('Employee deleted successfully!');
+    }, 1000); // 2 seconds delay
+</script>
 
 </body>
 

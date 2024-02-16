@@ -22,7 +22,7 @@
         <hr>
         <h2>Update Employee</h2>
 
-        <form action="#" th:action="@{/saveUpEmployee}" th:object="${employee}" method="POST" id="myForm">
+        <form action="#" th:action="@{/saveUpEmployee/{id}(id=${employee.id})}" th:object="${employee}" method="POST" id="myForm">
 			<div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
        
             <div class="form-column">
